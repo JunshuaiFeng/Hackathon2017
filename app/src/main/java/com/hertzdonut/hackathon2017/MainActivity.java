@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
         // Get text fields from layout
         usernameField = (EditText) findViewById(R.id.edtTxtUsername);
         passwordField = (EditText) findViewById(R.id.edtTxtPassword);
-
     }
 
     // Method called when login button is clicked

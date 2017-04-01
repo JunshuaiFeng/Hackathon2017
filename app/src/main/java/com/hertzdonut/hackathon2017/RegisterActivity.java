@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.lang.reflect.Method;
+
+import static android.R.attr.start;
+
 public class RegisterActivity extends AppCompatActivity {
     private EditText usernameField, passwordField, confirmPasswordField,
             firstNameField, lastNameField, birthDateField;
@@ -17,17 +21,16 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        // Get text fields from layout
         usernameField = (EditText) findViewById(R.id.edtTxtUsername);
         passwordField = (EditText) findViewById(R.id.edtTxtPassword);
         confirmPasswordField = (EditText) findViewById(R.id.edtTxtConfirmPassword);
         firstNameField = (EditText) findViewById(R.id.edtTxtFirstName);
         lastNameField = (EditText) findViewById(R.id.edtTxtLastName);
         birthDateField = (EditText) findViewById(R.id.edtTxtBirthDate);
-
-        submitButton = (Button) findViewById(R.id.btnSubmit);
-        cancelButton = (Button) findViewById(R.id.btnCancel);
     }
 
+    // Method called when submit button is clicked
     public void submit(View v) {
         // Get values from fields
         String username = usernameField.getText().toString();
@@ -48,9 +51,12 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
-
+        // Load Home Activity
+        Intent homeIntent = new Intent(this, HomeActivity.class);
+        startActivity(homeIntent);
     }
 
+    // Method called when Cancel button is clicked
     public void cancel(View v) {
         Intent cancelIntent = new Intent(this, MainActivity.class);
         startActivity(cancelIntent);
