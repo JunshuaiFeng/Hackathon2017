@@ -7,5 +7,33 @@
     android:background="#000000">
 
 
+    <Button
+        android:id="@+id/btnStartReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Start Reservation"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="startReservation" />
 
+    <Button
+        android:id="@+id/btnMyReservations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:text="MyReservations"
+        android:layout_below="@+id/btnStartReservation"
+        android:layout_centerHorizontal="true"
+        android:onClick="myReservations"/>
+
+    <Button
+        android:id="@+id/btnMyProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:text="MyProfile"
+        android:layout_below="@+id/btnMyReservations"
+        android:layout_centerHorizontal="true"
+        android:onClick="myProfile"/>
 </RelativeLayout>
