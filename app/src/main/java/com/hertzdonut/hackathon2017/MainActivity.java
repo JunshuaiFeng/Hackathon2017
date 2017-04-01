@@ -26,7 +26,17 @@ public class MainActivity extends AppCompatActivity {
         String username = usernameField.getText().toString();
         String password = usernameField.getText().toString();
 
+        // Validate user
 
+
+
+
+
+
+        // Go to home activity
+        Intent homeIntent = new Intent(this, HomeActivity.class);
+        // Start register activity
+        startActivity(homeIntent);
     }
 
     // Method called when register button is clicked

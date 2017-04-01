@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.lang.reflect.Method;
 
@@ -43,6 +44,9 @@ public class RegisterActivity extends AppCompatActivity {
         // Verify that password and confirm password match
         if(password.equals(confirmPassword)) {
 
+        }
+        else {
+            Toast.makeText(this, "Passwords do not match!", Toast.LENGTH_LONG).show();
         }
 
         // Submit user to database
