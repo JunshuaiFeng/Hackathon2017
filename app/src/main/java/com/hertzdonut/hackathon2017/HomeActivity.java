@@ -1,5 +1,6 @@
 package com.hertzdonut.hackathon2017;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +18,8 @@ public class HomeActivity extends AppCompatActivity {
 
     // Method called when Start Reservation button is clicked
     public void startReservation(View v) {
-
+        Intent startReservation = new Intent(this, NewReservation.class);
+        startActivity(startReservation);
     }
 
     // Method called when My Reservation buttons is clicked

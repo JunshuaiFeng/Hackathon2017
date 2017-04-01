@@ -1,99 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="#000000">
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="username"
+        android:hint="  username"
         android:id="@+id/edtTxtUsername"
         android:background="@drawable/rounded_edittext"
-        android:layout_marginTop="26dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:hint="password"
+        android:hint="  password"
         android:id="@+id/edtTxtPassword"
         android:background="@drawable/rounded_edittext"
-        android:layout_marginTop="11dp"
-        android:layout_below="@+id/edtTxtConfirmPassword"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:hint="confirm password"
+        android:hint="  confirm password"
         android:id="@+id/edtTxtConfirmPassword"
         android:background="@drawable/rounded_edittext"
-        android:layout_marginTop="14dp"
-        android:layout_below="@+id/edtTxtUsername"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="first name"
+        android:hint="  first name"
         android:id="@+id/edtTxtFirstName"
         android:background="@drawable/rounded_edittext"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/edtTxtPassword"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="last name"
+        android:hint="  last name"
         android:id="@+id/edtTxtLastName"
         android:background="@drawable/rounded_edittext"
-        android:layout_marginTop="12dp"
-        android:layout_below="@+id/edtTxtFirstName"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="date"
-        android:hint="birth date"
+        android:hint="  birth date"
         android:id="@+id/edtTxtBirthDate"
         android:background="@drawable/rounded_edittext"
-        android:layout_marginTop="11dp"
-        android:layout_below="@+id/edtTxtLastName"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
 
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/edtTxtBirthDate"
-        android:layout_marginStart="61dp"
-        android:layout_marginTop="40dp"
-        android:background="#FFFFFF"
-        android:text="Submit"
-        android:onClick="submit"/>
+        android:orientation="horizontal"
+        android:weightSum="2">
 
-    <Button
-        android:id="@+id/btnCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/btnSubmit"
-        android:layout_marginEnd="66dp"
-        android:background="#FFFFFF"
-        android:text="Cancel"
-        android:onClick="cancel"/>
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:text="Submit"
+            android:layout_weight="1"
+            android:onClick="submit"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
 
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:text="Cancel"
+            android:layout_weight="1"
+            android:onClick="cancel"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
 
-</RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

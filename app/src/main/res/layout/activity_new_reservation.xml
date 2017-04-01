@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:scrollbars="none"
+        android:fillViewport="false">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="  first name"
+                android:id="@+id/edtTxtFirstName"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_edittext"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="  last name"
+                android:id="@+id/edtTxtLastName"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_edittext"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="  email"
+                android:id="@+id/edtTxtEmail"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_edittext"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="  birth date"
+                android:id="@+id/edtTxtBirthDate"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_edittext"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="  drivers license #"
+                android:id="@+id/edtTxtDriversLicense"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_edittext"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="  drivers license state"
+                android:id="@+id/edtTxtLicenseState"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_edittext"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:id="@+id/txtLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choose Hertz Location:"
+                android:layout_marginTop="10dp"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:id="@+id/txtClass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choose a Class:"
+                android:layout_marginTop="10dp"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerClass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:id="@+id/txtStartDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Start Date:"
+                android:layout_marginTop="10dp"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <Button
+                android:id="@+id/btnStartDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="Start Date"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:onClick="setStartDate"/>
+
+            <TextView
+                android:id="@+id/txtEndDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="End Date:"
+                android:layout_marginTop="10dp"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <Button
+                android:id="@+id/btnEndDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="End Date"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:onClick="setEndDate"/>
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="I agree to the terms and conditions"
+                android:textColor="#FFFFFF"
+                android:buttonTint="#FFFFFF"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Submit"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:onClick="submit"/>
+
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cancel"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
