@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="username"
+        android:id="@+id/edtTxtUsername"
+        android:background="@drawable/rounded_edittext"
+        android:layout_marginTop="26dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="password"
+        android:id="@+id/edtTxtPassword"
+        android:background="@drawable/rounded_edittext"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/edtTxtConfirmPassword"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="confirm password"
+        android:id="@+id/edtTxtConfirmPassword"
+        android:background="@drawable/rounded_edittext"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/edtTxtUsername"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>

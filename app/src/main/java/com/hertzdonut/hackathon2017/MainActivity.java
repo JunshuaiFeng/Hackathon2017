@@ -15,18 +15,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Get text fields from layout
         usernameField = (EditText) findViewById(R.id.edtTxtUsername);
         passwordField = (EditText) findViewById(R.id.edtTxtPassword);
 
     }
 
+    // Method called when login button is clicked
     public void login(View v) {
-        System.out.println("login");
+        // Get username and password from text fields
+        String username = usernameField.getText().toString();
+        String password = usernameField.getText().toString();
+
+
     }
 
+    // Method called when register button is clicked
     public void register(View v) {
-        System.out.println("register");
-        Intent registerIntent = new Intent();
-
+        // Create intent
+        Intent registerIntent = new Intent(this, RegisterActivity.class);
+        // Start register activity
+        startActivity(registerIntent);
     }
 }
