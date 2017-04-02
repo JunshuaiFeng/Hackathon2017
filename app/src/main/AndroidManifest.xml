@@ -52,6 +52,7 @@
             android:name=".MyProfileActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".CarChooserActivity"></activity>
     </application>
 
 </manifest>
