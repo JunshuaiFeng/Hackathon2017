@@ -17,6 +17,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="FirstName"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:textColor="#FFFFFF"/>
 
         <TextView
@@ -24,6 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="LastName"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginTop="10dp"
             android:textColor="#FFFFFF"/>
 
     </LinearLayout>
@@ -33,6 +39,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:textColor="#FFFFFF" />
 
     <TextView
@@ -40,6 +50,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Location"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:textColor="#FFFFFF"/>
 
     <TextView
@@ -47,6 +61,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Class"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:textColor="#FFFFFF"/>
 
     <TextView
@@ -54,6 +72,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Start Date"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:textColor="#FFFFFF"/>
 
     <TextView
@@ -61,6 +83,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="EndDate"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:textColor="#FFFFFF"/>
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancel Reservation"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#FFFFFF"
+        android:onClick="cancelReservation"/>
 
 </LinearLayout>
