@@ -8,45 +8,65 @@
     android:orientation="vertical"
     android:weightSum="5">
 
-
-    <ImageButton
+    <Button
         android:id="@+id/btnStartReservation"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="52dp"
         android:layout_marginTop="44dp"
-        android:layout_weight="1"
         android:onClick="startReservation"
-        android:scaleType="centerCrop"
-        android:background="@null"
-        android:src="@drawable/make_reservation" />
+        android:textColor="#000000"
+        android:text="Make A Reservation"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:layout_weight="0.24"
+        android:textSize="20dp"
+        android:fontFamily="serif"
+        android:textStyle="normal|italic" />
 
-    <ImageButton
+    <Button
         android:id="@+id/btnMyReservations"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="56dp"
-        android:layout_weight="1"
+        android:layout_height="52dp"
+        android:layout_marginTop="44dp"
         android:onClick="myReservations"
-        android:scaleType="centerCrop"
-        android:background="@null"
-        android:src="@drawable/my_reservations" />
+        android:textColor="#000000"
+        android:text="My Reservations"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:layout_weight="0.24"
+        android:fontFamily="serif"
+        android:textStyle="normal|italic"
+        android:textSize="20dp"/>
 
-    <ImageButton
+    <Button
         android:id="@+id/btnMyProfile"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="56dp"
-        android:layout_weight="1"
+        android:layout_height="52dp"
+        android:layout_marginTop="44dp"
         android:onClick="myProfile"
-        android:scaleType="centerCrop"
-        android:background="@null"
-        android:src="@drawable/my_profile" />
+        android:textColor="#000000"
+        android:text="My Profile"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:layout_weight="0.24"
+        android:fontFamily="serif"
+        android:textStyle="normal|italic"
+        android:textSize="20dp" />
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:srcCompat="@drawable/car_model"
-
-        android:id="@+id/imageView"
-        android:layout_weight="2"/>
+        android:layout_marginTop="40dp"
+        android:layout_weight="4.5"/>
 </LinearLayout>
