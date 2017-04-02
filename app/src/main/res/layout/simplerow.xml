@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="#000000"
+    android:background="#FEDB14"
     android:weightSum="3">
 
     <TextView
@@ -12,16 +12,19 @@
         android:layout_height="wrap_content"
         android:text="Location"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
-        android:layout_weight="2"/>
+        android:layout_weight="2"
+        android:padding="10dp"/>
+
     <TextView
         android:id="@+id/dates"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:text="Dates"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:layout_marginLeft="10dp"
         android:layout_weight="1"/>
 
