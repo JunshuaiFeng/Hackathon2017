@@ -15,11 +15,14 @@ import java.util.List;
 public class CarChooserActivity extends AppCompatActivity implements OnItemSelectedListener {
     private Spinner carSpinner;
     private TextView txtClass, txtDates;
+    private int customer_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_chooser);
+
+        customer_id = getIntent().getExtras().getInt("id");
 
         // Get text view elements from layout
         txtClass = (TextView) findViewById(R.id.txtClass);

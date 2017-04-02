@@ -99,7 +99,7 @@ public class HomeActivity extends AppCompatActivity {
 
     // Notification Message
     public void showNotification(String title, String message) {
-        Intent notifyIntent = new Intent(this, MyReservations.class);
+        Intent notifyIntent = new Intent(this, CarChooserActivity.class);
         notifyIntent.putExtra("id", customer_id);
         notifyIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivities(this, 0,
