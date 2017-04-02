@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.os.StrictMode;
 
+import com.estimote.sdk.SystemRequirementsChecker;
+
 import org.json.JSONException;
 
 public class MainActivity extends AppCompatActivity {
@@ -61,5 +63,11 @@ public class MainActivity extends AppCompatActivity {
         Intent registerIntent = new Intent(this, RegisterActivity.class);
         // Start register activity
         startActivity(registerIntent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SystemRequirementsChecker.checkWithDefaultDialogs(this);
     }
 }
