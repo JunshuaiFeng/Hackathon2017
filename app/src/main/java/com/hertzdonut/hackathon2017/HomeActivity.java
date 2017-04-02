@@ -100,6 +100,7 @@ public class HomeActivity extends AppCompatActivity {
     // Notification Message
     public void showNotification(String title, String message) {
         Intent notifyIntent = new Intent(this, MyReservations.class);
+        notifyIntent.putExtra("id", customer_id);
         notifyIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivities(this, 0,
                 new Intent[] { notifyIntent }, PendingIntent.FLAG_UPDATE_CURRENT);
