@@ -31,9 +31,11 @@
             android:name=".NewReservation"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MyReservations"
+        <activity
+            android:name=".MyReservations"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ReservationActivity"></activity>
     </application>
 
 </manifest>

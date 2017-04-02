@@ -6,23 +6,10 @@
     android:layout_height="match_parent"
     android:background="#000000">
 
-    <ScrollView
+
+    <ListView
+        android:id="@+id/reservationList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/scrollView"
-        android:scrollbars="none"
-        android:fillViewport="false">
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-
-
-        </LinearLayout>
-
-    </ScrollView>
+        android:layout_height="match_parent" />
 
 </LinearLayout>
