@@ -99,7 +99,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="#FFFFFF"
+        android:background="#FEDB14"
         android:onClick="cancelReservation"/>
 
 </LinearLayout>
