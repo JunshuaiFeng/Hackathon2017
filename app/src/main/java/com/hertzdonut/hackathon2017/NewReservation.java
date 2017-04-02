@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -188,9 +189,32 @@ public class NewReservation extends AppCompatActivity implements OnItemSelectedL
 
     // Method called when submit button is clicked
     public void submit(View v) {
-
-        // Get checkbox value
+        // Get text from fields
+        String firstName = firstNameField.getText().toString();
+        String lastName = lastNameField.getText().toString();
+        String email = emailField.getText().toString();
+        String birthDate = birthDateField.getText().toString();
+        String driverLicense = licenseField.getText().toString();
+        String licenseState = licenseStateField.getText().toString();
+        String location = locationSpinner.getSelectedItem().toString();
+        String carClass = classSpinner.getSelectedItem().toString();
+        String startDate = startDateBtn.getText().toString();
+        String endDate = endDateBtn.getText().toString();
         Boolean checked = checkBox.isChecked();
+
+        // Check if box is checked
+        if(!checked) {
+            Toast.makeText(this, "You must agree to terms and conditions!", Toast.LENGTH_LONG).show();
+        }
+        else {
+            // Submit to database
+
+
+
+            // Load home activity
+            Intent homeIntent = new Intent(this, HomeActivity.class);
+            startActivity(homeIntent);
+        }
 
     }
 

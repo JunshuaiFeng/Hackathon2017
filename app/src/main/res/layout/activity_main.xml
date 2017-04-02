@@ -20,23 +20,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="  username"
+        android:hint="email"
         android:id="@+id/edtTxtUsername"
         android:layout_below="@+id/imageView2"
         android:layout_alignParentStart="true"
         android:background="@drawable/rounded_edittext"
-        android:layout_marginTop="143dp" />
+        android:layout_marginTop="143dp"
+        android:paddingLeft="10dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:hint="  password"
+        android:hint="password"
         android:id="@+id/edtTxtPassword"
         android:background="@drawable/rounded_edittext"
         android:layout_marginTop="33dp"
         android:layout_below="@+id/edtTxtUsername"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:paddingLeft="10dp"/>
 
     <Button
         android:id="@+id/btnLogin"

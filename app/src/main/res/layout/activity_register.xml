@@ -11,67 +11,73 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="  username"
+        android:hint="email"
         android:id="@+id/edtTxtUsername"
         android:background="@drawable/rounded_edittext"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:paddingLeft="10dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:hint="  password"
+        android:hint="password"
         android:id="@+id/edtTxtPassword"
         android:background="@drawable/rounded_edittext"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:paddingLeft="10dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:hint="  confirm password"
+        android:hint="confirm password"
         android:id="@+id/edtTxtConfirmPassword"
         android:background="@drawable/rounded_edittext"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:paddingLeft="10dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="  first name"
+        android:hint="first name"
         android:id="@+id/edtTxtFirstName"
         android:background="@drawable/rounded_edittext"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:paddingLeft="10dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="  last name"
+        android:hint="last name"
         android:id="@+id/edtTxtLastName"
         android:background="@drawable/rounded_edittext"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:paddingLeft="10dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="date"
-        android:hint="  birth date"
+        android:hint="birth date"
         android:id="@+id/edtTxtBirthDate"
         android:background="@drawable/rounded_edittext"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:paddingLeft="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"

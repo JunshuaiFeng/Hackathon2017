@@ -22,67 +22,73 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="  first name"
+                android:hint="first name"
                 android:id="@+id/edtTxtFirstName"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_edittext"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="  last name"
+                android:hint="last name"
                 android:id="@+id/edtTxtLastName"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_edittext"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="  email"
+                android:hint="email"
                 android:id="@+id/edtTxtEmail"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_edittext"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="  birth date"
+                android:hint="birth date"
                 android:id="@+id/edtTxtBirthDate"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_edittext"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="  drivers license #"
+                android:hint="drivers license #"
                 android:id="@+id/edtTxtDriversLicense"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_edittext"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="  drivers license state"
+                android:hint="drivers license state"
                 android:id="@+id/edtTxtLicenseState"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_edittext"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"/>
 
             <TextView
                 android:id="@+id/txtLocation"
