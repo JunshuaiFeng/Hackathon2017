@@ -1,10 +1,12 @@
 package com.hertzdonut.hackathon2017;
 
+import java.io.Serializable;
+
 /**
  * Created by Joey Laptop on 4/1/2017.
  */
 
-public class Reservation {
+public class Reservation implements Serializable {
     private int id;
     private String firstName, lastName, email, birthDate, licenseNumber, licenseState,
             location, carClass, startDate, endDate;

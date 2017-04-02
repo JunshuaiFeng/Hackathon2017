@@ -1,6 +1,7 @@
 package com.hertzdonut.hackathon2017;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -42,8 +43,9 @@ public class MyReservations extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Load reservation page
-
-
+                Intent reservationIntent = new Intent(context, ReservationActivity.class);
+                reservationIntent.putExtra("reservation", list.get(position));
+                startActivity(reservationIntent);
 
 
             }
