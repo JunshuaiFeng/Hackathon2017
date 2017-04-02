@@ -6,7 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
- 
+import android.widget.Toast;
+import android.os.StrictMode;
+
+import org.json.JSONException;
+
 public class MainActivity extends AppCompatActivity {
     private EditText usernameField, passwordField;
 
@@ -15,28 +19,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if(android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+
         // Get text fields from layout
         usernameField = (EditText) findViewById(R.id.edtTxtUsername);
         passwordField = (EditText) findViewById(R.id.edtTxtPassword);
     }
 
     // Method called when login button is clicked
-    public void login(View v) {
+    public void login(View v) throws JSONException {
         // Get username and password from text fields
         String username = usernameField.getText().toString();
-        String password = usernameField.getText().toString();
+        String password = passwordField.getText().toString();
 
         // Validate user
-
-
-
-
-
-
-        // Go to home activity
-        Intent homeIntent = new Intent(this, HomeActivity.class);
-        // Start register activity
-        startActivity(homeIntent);
+        LoginLogic logic = new LoginLogic();
+        Profile profile = logic.login(username, password);
+        if(profile == null) {
+            Toast.makeText(this, "Invalid username or password!", Toast.LENGTH_LONG).show();
+        }
+        else {
+            // Go to home activity
+            Intent homeIntent = new Intent(this, HomeActivity.class);
+            // Start register activity
+            startActivity(homeIntent);
+        }
     }
 
     // Method called when register button is clicked
