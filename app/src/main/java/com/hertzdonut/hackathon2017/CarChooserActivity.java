@@ -7,17 +7,27 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CarChooserActivity extends AppCompatActivity implements OnItemSelectedListener {
     private Spinner carSpinner;
+    private TextView txtClass, txtDates;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_chooser);
+
+        // Get text view elements from layout
+        txtClass = (TextView) findViewById(R.id.txtClass);
+        txtDates = (TextView) findViewById(R.id.txtDates);
+
+        // Set text for text views
+        txtClass.setText("Midsize");
+        txtDates.setText("4/3/17 - 4/10/17");
 
         // Get spinner element from layout
         carSpinner = (Spinner) findViewById(R.id.spinnerCar);

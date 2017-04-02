@@ -63,6 +63,8 @@ public class ReservationActivity extends AppCompatActivity {
 
     // Method called when cancel reservation button is clicked
     public void cancelReservation(View v) {
-
+        Intent myReservations = new Intent(this, MyReservations.class);
+        myReservations.putExtra("id", customer_id);
+        startActivity(myReservations);
     }
 }

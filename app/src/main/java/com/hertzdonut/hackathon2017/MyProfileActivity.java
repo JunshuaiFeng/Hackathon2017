@@ -49,6 +49,7 @@ public class MyProfileActivity extends AppCompatActivity {
     // Method called when cancel button is clicked
     public void cancel(View v) {
         Intent homeIntent = new Intent(this, HomeActivity.class);
+        homeIntent.putExtra("id", customer_id);
         startActivity(homeIntent);
     }
 }
