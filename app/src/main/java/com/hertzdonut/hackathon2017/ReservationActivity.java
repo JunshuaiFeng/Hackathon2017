@@ -29,17 +29,18 @@ public class ReservationActivity extends AppCompatActivity {
         endDate = (TextView) findViewById(R.id.txtEndDate);
 
         // Set text for each text view from the Reservation object
-        firstName.setText(res.getFirstName());
+        firstName.setText("Name: " + res.getFirstName());
         lastName.setText(res.getLastName());
-        email.setText(res.getEmail());
-        location.setText(res.getLocation());
-        carClass.setText(res.getCarClass());
-        startDate.setText(res.getStartDate());
-        endDate.setText(res.getEndDate());
+        email.setText("Email: " + res.getEmail());
+        location.setText("Location: " + res.getLocation());
+        carClass.setText("Car class: " + res.getCarClass());
+        startDate.setText("Start date: " + res.getStartDate());
+        endDate.setText("End date: " + res.getEndDate());
     }
 
     // Method called when cancel reservation button is clicked
     public void cancelReservation(View v) {
-
+        Intent myReservation = new Intent(this, MyReservations.class);
+        startActivity(myReservation);
     }
 }
