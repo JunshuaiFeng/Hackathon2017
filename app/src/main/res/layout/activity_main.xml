@@ -41,31 +41,39 @@
         android:paddingLeft="10dp"/>
 
     <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edtTxtPassword"
-        android:layout_marginEnd="55dp"
-        android:layout_marginTop="35dp"
-        android:layout_toStartOf="@+id/btnRegister"
-        android:background="#FFFFFF"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#000000"
-        android:text="Login"
-        android:onClick="login"/>
-
-    <Button
         android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/btnLogin"
         android:layout_alignBottom="@+id/btnLogin"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="77dp"
-        android:background="#FFFFFF"
+        android:layout_marginEnd="25dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#000000"
         android:text="Register"
-        android:onClick="register"/>
+        android:onClick="register"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000"
+        android:text="Login"
+        android:onClick="login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="180dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="25dp" />
 
 </RelativeLayout>
