@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "107158450484",
+    "firebase_url": "https://hertzhackathon-b7198.firebaseio.com",
+    "project_id": "hertzhackathon-b7198",
+    "storage_bucket": "hertzhackathon-b7198.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107158450484:android:26d9ee7d72756946",
+        "android_client_info": {
+          "package_name": "com.hertzdonut.hackathon2017"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107158450484-h0b4li23fs6tvaktnosidjff1ok9mnqj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxL1BuPLlWZBCUYO_c95TFzxCY9KmGpEU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
