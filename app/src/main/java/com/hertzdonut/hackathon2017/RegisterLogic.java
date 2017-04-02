@@ -1,5 +1,7 @@
 package com.hertzdonut.hackathon2017;
 
+import com.hertzdonut.hackathon2017.Customer;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,22 +15,37 @@ import java.util.Date;
 
 import org.json.*;
 
-public class LoginLogic {
-	
-	public Profile login(String email, String password) throws JSONException {
-		String url = "http://hertzapi-dev.us-west-2.elasticbeanstalk.com/api/customer/get/?email=" + email + "&password=" + password;
+public class RegisterLogic {
+
+	public Profile Register(String firstName, String lastName, String birthDate, String email, String password) throws JSONException {
+		String url = "http://hertzapi-dev.us-west-2.elasticbeanstalk.com/api/customer/create/?first_name=" + firstName + "&last_name=" + lastName + "&birth_date=" + birthDate + "&email=" + email + "&password=" + password;
 		
 		String json = request(url);
-		boolean success = parseLogin(json);
+		boolean success = parseResponse(json);
 		
 		if(success) {
-			url = "http://hertzapi-dev.us-west-2.elasticbeanstalk.com/api/profile/get/?email=" + email;
+			url = "http://hertzapi-dev.us-west-2.elasticbeanstalk.com/api/customer/get/?email=" + email + "&password=" + password;
 			json = request(url);
-			Profile profile = parseProfile(json);
-			return profile;
+			success = parseResponse(json);
+			
+			if(success) {
+				url = "http://hertzapi-dev.us-west-2.elasticbeanstalk.com/api/profile/get/?email=" + email;
+				json = request(url);
+				Profile profile = parseProfile(json);
+				return profile;
+			} else {
+				return null;
+			}
 		} else {
 			return null;
 		}
+	}
+
+	public Profile getProfile(int id) {
+		String url = "http://hertzapi-dev.us-west-2.elasticbeanstalk.com/api/profile/getSingle/?id=" + id;
+		String json = request(url);
+		Profile profile = parseProfile(json);
+		return profile;
 	}
 	
 	public String request(String url) {
@@ -66,10 +83,22 @@ public class LoginLogic {
 			customer.setPassword((String) customerObject.get("Password"));
 			
 			profile.customer = customer;
-			profile.licenseNum = (String) object.get("DriversLicenseNumber");
-			profile.licenseState = (String) object.get("DriversLicenseNumber");
-			profile.termsAccepted = (Boolean) object.get("WaiversSigned");
+
+			Object o = object.get("DriversLicenseNumber");
+			if(o instanceof String) {
+				profile.licenseNum = (String) object.get("DriversLicenseNumber");
+			}
 			
+			o = object.get("DriversLicenseState");
+			if(o instanceof String) {
+				profile.licenseState = (String) object.get("DriversLicenseState");
+			}
+			
+			o = object.get("WaiversSigned");
+			if(o instanceof Boolean) {
+				profile.termsAccepted = (Boolean) object.get("WaiversSigned");
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -77,7 +106,7 @@ public class LoginLogic {
 		return profile;
 	}
 	
-	public boolean parseLogin(String json) throws JSONException {
+	public boolean parseResponse(String json) throws JSONException {
 		JSONObject object = new JSONObject(json);
 		Boolean success = (Boolean) object.get("success");
 		return success;

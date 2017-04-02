@@ -3,12 +3,20 @@ package com.hertzdonut.hackathon2017;
 import java.util.Date;
 
 public class Customer {
+	public int id;
 	public String firstName;
 	public String lastName;
-	public Date birthDate;
+	public String birthDate;
 	public String email;
 	public String password;
-	
+
+	public int getID() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -23,10 +31,10 @@ public class Customer {
 		this.lastName = lastName;
 	}
 	
-	public Date getBirthDate() {
+	public String getBirthDate() {
 		return birthDate;
 	}
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
 	}
 	

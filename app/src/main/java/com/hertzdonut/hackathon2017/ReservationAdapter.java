@@ -7,7 +7,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Created by Joey Laptop on 4/1/2017.
@@ -43,9 +46,23 @@ public class ReservationAdapter extends BaseAdapter {
         TextView location = (TextView) rowView.findViewById(R.id.location);
         TextView dates = (TextView) rowView.findViewById(R.id.dates);
 
+        LocationLogic locationLogic = new LocationLogic();
+        Location currentLocation = null;
+        try {
+            Object[] loc = locationLogic.getLocations();
+            for(int i = 0; i < loc.length; i++) {
+                Location l = (Location) loc[i];
+                if(l.id == list.get(position).location) {
+                    currentLocation = l;
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         // Set object values
-        location.setText(list.get(position).getLocation());
-        dates.setText(list.get(position).getStartDate() + " - " + list.get(position).getEndDate());
+        location.setText(currentLocation.address);
+        dates.setText(list.get(position).StartDate + " - " + list.get(position).ReturnDate);
 
         return rowView;
     };

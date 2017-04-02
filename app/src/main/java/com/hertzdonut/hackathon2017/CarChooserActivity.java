@@ -22,12 +22,6 @@ public class CarChooserActivity extends AppCompatActivity implements OnItemSelec
         // Get spinner element from layout
         carSpinner = (Spinner) findViewById(R.id.spinnerCar);
 
-
-        /*
-        *   The following section sets up the drop down (spinner) menus
-        *
-        */
-
         // Set spinner click listeners
         carSpinner.setOnItemSelectedListener(this);
 

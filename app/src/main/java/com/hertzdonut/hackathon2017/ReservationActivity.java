@@ -7,8 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.json.JSONException;
+
 public class ReservationActivity extends AppCompatActivity {
     private TextView firstName, lastName, email, location, carClass, startDate, endDate;
+    private int customer_id, reservation_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,8 +19,8 @@ public class ReservationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reservation);
 
         // Get Reservation object from intent
-        Intent i = getIntent();
-        Reservation res = (Reservation) i.getExtras().getSerializable("reservation");
+        customer_id = getIntent().getExtras().getInt("id");
+        reservation_id = getIntent().getExtras().getInt("reservationId");
 
         // Get text view elements from layout
         firstName = (TextView) findViewById(R.id.txtFirstName);
@@ -28,14 +31,34 @@ public class ReservationActivity extends AppCompatActivity {
         startDate = (TextView) findViewById(R.id.txtStartDate);
         endDate = (TextView) findViewById(R.id.txtEndDate);
 
-        // Set text for each text view from the Reservation object
-        firstName.setText(res.getFirstName());
-        lastName.setText(res.getLastName());
-        email.setText(res.getEmail());
-        location.setText(res.getLocation());
-        carClass.setText(res.getCarClass());
-        startDate.setText(res.getStartDate());
-        endDate.setText(res.getEndDate());
+        ReservationLogic logic = new ReservationLogic();
+        Reservation reservation = null;
+        try {
+            reservation = logic.loadSingleReservation(reservation_id);
+            RegisterLogic registerLogic = new RegisterLogic();
+            Profile profile = registerLogic.getProfile(customer_id);
+            LocationLogic locationLogic = new LocationLogic();
+            Object[] obj = locationLogic.getLocations();
+            Location currentLocation = null;
+            for(int i = 0; i < obj.length; i++) {
+                Location location = (Location) obj[i];
+                if(location.id == reservation.location) {
+                    currentLocation = location;
+                }
+            }
+            firstName.setText(profile.customer.firstName);
+            lastName.setText(profile.customer.lastName);
+            email.setText(profile.customer.email);
+            location.setText(currentLocation.address);
+            carClass.setText(reservation.carClass);
+            startDate.setText(reservation.StartDate);
+            endDate.setText(reservation.ReturnDate);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     // Method called when cancel reservation button is clicked

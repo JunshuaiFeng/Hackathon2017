@@ -1,12 +1,15 @@
 package com.hertzdonut.hackathon2017;
 
 import android.content.Intent;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import org.json.JSONException;
 
 import java.lang.reflect.Method;
 
@@ -21,6 +24,11 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        if(android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
 
         // Get text fields from layout
         usernameField = (EditText) findViewById(R.id.edtTxtUsername);
@@ -50,13 +58,19 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         // Submit user to database
-
-
-
+        RegisterLogic registerLogic = new RegisterLogic();
+        int id = -1;
+        try {
+            Profile profile = registerLogic.Register(firstName,lastName,birthDate,username,password);
+            id = profile.customer.getID();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
 
         // Load Home Activity
         Intent homeIntent = new Intent(this, HomeActivity.class);
+        homeIntent.putExtra("id", id);
         startActivity(homeIntent);
     }
 

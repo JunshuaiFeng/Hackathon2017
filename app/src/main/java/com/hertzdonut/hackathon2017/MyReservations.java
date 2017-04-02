@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
 
 public class MyReservations extends AppCompatActivity {
@@ -15,23 +17,34 @@ public class MyReservations extends AppCompatActivity {
     private Context context;
     private ArrayList<Reservation> list;
     private ListView listView;
+    private int customer_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_reservations);
 
+        customer_id = getIntent().getExtras().getInt("id");
+
         context = getApplicationContext();
 
         // Pull array list of reservations from db
 
         list = new ArrayList<>();
-        Reservation res1 = new Reservation("John", "Smith", "jsmith@gmail.com", "4/12/90",
-                "S462-78-297", "FL", "Fort Myers International Airport", "Midsize", "4/8/17", "4/14/17", true);
-        Reservation res2 = new Reservation("Jane", "Doe", "jdoe@gmail.com", "6/15/65",
-                "S763-98-596", "FL", "Ft. Myers - South Tamiami Trail HLE", "Compact", "5/7/17", "6/1/17", true);
-        list.add(res1);
-        list.add(res2);
+        ReservationLogic logic = new ReservationLogic();
+        try {
+            Object[] res = logic.loadCustomerReservations(customer_id);
+
+            for(int i = 0; i < res.length; i++) {
+                Reservation reservation = (Reservation) res[i];
+                list.add(reservation);
+            }
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
         // Set reservations in adapter
         adapter = new ReservationAdapter(context, list);
@@ -44,10 +57,12 @@ public class MyReservations extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Load reservation page
                 Intent reservationIntent = new Intent(context, ReservationActivity.class);
-                reservationIntent.putExtra("reservation", list.get(position));
+                reservationIntent.putExtra("id", customer_id);
+
+
+                Reservation reservation = (Reservation) listView.getAdapter().getItem(position);
+                reservationIntent.putExtra("reservationId", reservation.id);
                 startActivity(reservationIntent);
-
-
             }
         });
     }

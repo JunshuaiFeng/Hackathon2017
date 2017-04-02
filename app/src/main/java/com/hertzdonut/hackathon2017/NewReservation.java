@@ -3,6 +3,7 @@ package com.hertzdonut.hackathon2017;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,8 @@ import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -31,11 +34,17 @@ public class NewReservation extends AppCompatActivity implements OnItemSelectedL
     private Calendar calendar;
     private TextView dateView;
     private int year, month, day;
+    private int customer_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_reservation);
+        customer_id = getIntent().getExtras().getInt("id");
+        if(android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
 
         // Get text fields from layout
         firstNameField = (EditText) findViewById(R.id.edtTxtFirstName);
@@ -58,6 +67,20 @@ public class NewReservation extends AppCompatActivity implements OnItemSelectedL
         locationSpinner = (Spinner) findViewById(R.id.spinnerLocation);
         classSpinner = (Spinner) findViewById(R.id.spinnerClass);
 
+        RegisterLogic registerLogic = new RegisterLogic();
+        Profile profile = registerLogic.getProfile(customer_id);
+
+        firstNameField.setText(profile.customer.getFirstName());
+        lastNameField.setText(profile.customer.getLastName());
+        emailField.setText(profile.customer.getEmail());
+        birthDateField.setText(profile.customer.getBirthDate());
+        if(profile.licenseNum != "") {
+            licenseField.setText(profile.licenseNum);
+        }
+        if(profile.licenseState != "") {
+            licenseStateField.setText(profile.licenseState);
+        }
+
 
 
         /*
@@ -70,12 +93,18 @@ public class NewReservation extends AppCompatActivity implements OnItemSelectedL
         classSpinner.setOnItemSelectedListener(this);
 
         // Set spinner Drop down elements for locationSpinner
-        List<String> locations = new ArrayList<String>();
-        locations.add("Ft. Myers - Base Ops at Page Field");
-        locations.add("Ft. Myers - Private Sky Aviation");
-        locations.add("Ft. Myers Southwest Intl Airport");
-        locations.add("Ft. Myers - Fowler HLE");
-        locations.add("Ft. Myers - South Tamiami Trail HLE");
+        ArrayList<String> array = new ArrayList<>();
+        LocationLogic logic = new LocationLogic();
+        try {
+            Object[] obj = logic.getLocations();
+            for(int i = 0; i < obj.length; i++) {
+                Location location = (Location) obj[i];
+                array.add(location.address);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
         // Set spinner Drop down elements for classSpinner
         List<String> classes = new ArrayList<String>();
@@ -86,7 +115,7 @@ public class NewReservation extends AppCompatActivity implements OnItemSelectedL
         classes.add("SUV");
 
         // Creating adapters for spinners
-        ArrayAdapter<String> locationAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, locations);
+        ArrayAdapter<String> locationAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, array);
         ArrayAdapter<String> classAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, classes);
 
         // Set drop down layout style for spinners
@@ -188,7 +217,7 @@ public class NewReservation extends AppCompatActivity implements OnItemSelectedL
             };
 
     // Method called when submit button is clicked
-    public void submit(View v) {
+    public void submit(View v) throws JSONException {
         // Get text from fields
         String firstName = firstNameField.getText().toString();
         String lastName = lastNameField.getText().toString();
@@ -208,12 +237,28 @@ public class NewReservation extends AppCompatActivity implements OnItemSelectedL
         }
         else {
             // Submit to database
+            ReservationLogic logic = new ReservationLogic();
+            LocationLogic locationLogic = new LocationLogic();
+            Object[] locations = locationLogic.getLocations();
+            int locationId = -1;
 
+            for(int i = 0; i < locations.length; i++) {
+                Location loc = (Location) locations[i];
+                if(loc.address.equals(location)) {
+                    locationId = loc.id;
+                }
+            }
 
+            boolean successful = logic.createReservation(locationId, customer_id, carClass, startDate, endDate);
 
-            // Load home activity
-            Intent homeIntent = new Intent(this, HomeActivity.class);
-            startActivity(homeIntent);
+            if(successful) {
+                // Load home activity
+                Intent homeIntent = new Intent(this, HomeActivity.class);
+                homeIntent.putExtra("id", customer_id);
+                startActivity(homeIntent);
+            } else {
+                Toast.makeText(this, "An error occurred!", Toast.LENGTH_LONG).show();
+            }
         }
 
     }
@@ -222,6 +267,7 @@ public class NewReservation extends AppCompatActivity implements OnItemSelectedL
     public void cancel(View v) {
         // Loads Home Activity
         Intent cancelIntent = new Intent(this, HomeActivity.class);
+        cancelIntent.putExtra("id", customer_id);
         startActivity(cancelIntent);
     }
 }

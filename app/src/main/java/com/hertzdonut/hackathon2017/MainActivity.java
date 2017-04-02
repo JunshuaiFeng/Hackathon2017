@@ -47,7 +47,9 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             // Go to home activity
+            int id = profile.customer.getID();
             Intent homeIntent = new Intent(this, HomeActivity.class);
+            homeIntent.putExtra("id", id);
             // Start register activity
             startActivity(homeIntent);
         }
