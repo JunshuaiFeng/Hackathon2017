@@ -24,7 +24,8 @@ public class HomeActivity extends AppCompatActivity {
 
     // Method called when My Reservation buttons is clicked
     public void myReservations(View v) {
-
+        Intent myReservation = new Intent(this, MyReservations.class);
+        startActivity(myReservation);
     }
 
     // Method called when My Profile button is clicked
