@@ -21,11 +21,15 @@ public class HomeActivity extends AppCompatActivity {
     private BeaconManager beaconManager;
     private boolean beaconNotificationsEnabled = false;
     private boolean entered = false;
+    private int customer_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+
+        customer_id = getIntent().getExtras().getInt("id");
 
         beaconManager = new BeaconManager(getApplicationContext());
 
@@ -75,18 +79,21 @@ public class HomeActivity extends AppCompatActivity {
     // Method called when Start Reservation button is clicked
     public void startReservation(View v) {
         Intent startReservation = new Intent(this, NewReservation.class);
+        startReservation.putExtra("id", customer_id);
         startActivity(startReservation);
     }
 
     // Method called when My Reservation buttons is clicked
     public void myReservations(View v) {
         Intent myReservation = new Intent(this, MyReservations.class);
+        myReservation.putExtra("id", customer_id);
         startActivity(myReservation);
     }
 
     // Method called when My Profile button is clicked
     public void myProfile(View v) {
         Intent myProfile = new Intent(this, MyProfileActivity.class);
+        myProfile.putExtra("id", customer_id);
         startActivity(myProfile);
     }
 
