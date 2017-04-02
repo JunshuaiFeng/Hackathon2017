@@ -27,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         // Get text fields from layout
         usernameField = (EditText) findViewById(R.id.edtTxtUsername);
         passwordField = (EditText) findViewById(R.id.edtTxtPassword);
+
+        usernameField.setText("test@gmail.com");
+        passwordField.setText("password");
     }
 
     // Method called when login button is clicked
@@ -34,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         // Get username and password from text fields
         String username = usernameField.getText().toString();
         String password = passwordField.getText().toString();
+
+
 
         // Validate user
         LoginLogic logic = new LoginLogic();
