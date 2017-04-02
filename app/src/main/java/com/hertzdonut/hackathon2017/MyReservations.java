@@ -22,6 +22,16 @@ public class MyReservations extends AppCompatActivity {
 
         context = getApplicationContext();
 
+        // Pull array list of reservations from db
+
+        list = new ArrayList<>();
+        Reservation res1 = new Reservation("John", "Smith", "jsmith@gmail.com", "4/12/90",
+                "S462-78-297", "FL", "Fort Myers International Airport", "Midsize", "4/8/17", "4/14/17", true);
+        Reservation res2 = new Reservation("Jane", "Doe", "jdoe@gmail.com", "6/15/65",
+                "S763-98-596", "FL", "Ft. Myers - South Tamiami Trail HLE", "Compact", "5/7/17", "6/1/17", true);
+        list.add(res1);
+        list.add(res2);
+
         // Set reservations in adapter
         adapter = new ReservationAdapter(context, list);
         adapter.notifyDataSetChanged();
@@ -31,7 +41,8 @@ public class MyReservations extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Load reservation
+                // Load reservation page
+
 
 
 

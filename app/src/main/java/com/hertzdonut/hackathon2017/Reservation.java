@@ -10,6 +10,21 @@ public class Reservation {
             location, carClass, startDate, endDate;
     private Boolean terms;
 
+    public Reservation(String firstName, String lastName, String email, String birthDate, String licenseNumber, String licenseState,
+                       String location, String carClass, String startDate, String endDate, Boolean terms) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.birthDate = birthDate;
+        this.licenseNumber = licenseNumber;
+        this.licenseState = licenseState;
+        this.location = location;
+        this.carClass = carClass;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.terms = terms;
+    }
+
     public String getFirstName() {
         return firstName;
     }
