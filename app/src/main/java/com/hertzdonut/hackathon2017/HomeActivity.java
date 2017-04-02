@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class HomeActivity extends AppCompatActivity {
-//test
+//test again
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
