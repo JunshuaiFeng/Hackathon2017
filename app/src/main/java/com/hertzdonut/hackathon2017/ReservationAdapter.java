@@ -61,8 +61,9 @@ public class ReservationAdapter extends BaseAdapter {
         }
 
         // Set object values
-        location.setText(currentLocation.address);
-        dates.setText(list.get(position).StartDate + " - " + list.get(position).ReturnDate);
+        location.setText("Location: " + currentLocation.address + ", Florida, US");
+        dates.setText("Start: " + list.get(position).StartDate.substring(0,10) +
+                "\nEnd: " + list.get(position).ReturnDate.substring(0,10));
 
         return rowView;
     };
