@@ -1,48 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000">
+    android:background="#000000"
+    android:orientation="vertical"
+    android:weightSum="5">
 
 
-    <Button
+    <ImageButton
         android:id="@+id/btnStartReservation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="44dp"
-        android:text="Start Reservation"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="startReservation" />
+        android:layout_weight="1"
+        android:onClick="startReservation"
+        android:scaleType="centerCrop"
+        android:background="@null"
+        android:src="@drawable/make_reservation" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btnMyReservations"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="56dp"
-        android:text="My Reservations"
-        android:layout_below="@+id/btnStartReservation"
-        android:layout_centerHorizontal="true"
-        android:onClick="myReservations"/>
+        android:layout_weight="1"
+        android:onClick="myReservations"
+        android:scaleType="centerCrop"
+        android:background="@null"
+        android:src="@drawable/my_reservations" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btnMyProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="56dp"
-        android:text="My Profile"
-        android:layout_below="@+id/btnMyReservations"
-        android:layout_centerHorizontal="true"
-        android:onClick="myProfile"/>
+        android:layout_weight="1"
+        android:onClick="myProfile"
+        android:scaleType="centerCrop"
+        android:background="@null"
+        android:src="@drawable/my_profile" />
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         app:srcCompat="@drawable/car_model"
-        android:layout_marginTop="102dp"
+
         android:id="@+id/imageView"
-        android:layout_alignTop="@+id/btnMyReservations"
-        android:layout_centerHorizontal="true" />
-</RelativeLayout>
+        android:layout_weight="2"/>
+</LinearLayout>

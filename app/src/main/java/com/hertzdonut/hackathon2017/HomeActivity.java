@@ -27,6 +27,7 @@ public class HomeActivity extends AppCompatActivity {
 
     // Method called when My Profile button is clicked
     public void myProfile(View v) {
-
+        Intent myProfile = new Intent(this, MyProfileActivity.class);
+        startActivity(myProfile);
     }
 }
