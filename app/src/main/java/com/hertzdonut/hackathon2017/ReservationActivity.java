@@ -46,13 +46,13 @@ public class ReservationActivity extends AppCompatActivity {
                     currentLocation = location;
                 }
             }
-            firstName.setText(profile.customer.firstName);
+            firstName.setText("Name: " + profile.customer.firstName);
             lastName.setText(profile.customer.lastName);
-            email.setText(profile.customer.email);
-            location.setText(currentLocation.address);
-            carClass.setText(reservation.carClass);
-            startDate.setText(reservation.StartDate);
-            endDate.setText(reservation.ReturnDate);
+            email.setText("Email: " + profile.customer.email);
+            location.setText("Location: " + currentLocation.address);
+            carClass.setText("Car class: " + reservation.carClass);
+            startDate.setText("Start date: " + reservation.StartDate.substring(0, 10));
+            endDate.setText("End date: " + reservation.ReturnDate.substring(0, 10));
 
         } catch (JSONException e) {
             e.printStackTrace();
