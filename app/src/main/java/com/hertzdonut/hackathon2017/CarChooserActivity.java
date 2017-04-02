@@ -61,6 +61,7 @@ public class CarChooserActivity extends AppCompatActivity implements OnItemSelec
 
     }
 
+    // Method called when the submit button is clicked
     public void submit(View v) {
 
     }
