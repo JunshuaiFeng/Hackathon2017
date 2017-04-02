@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import org.json.JSONException;
+
 import java.lang.reflect.Method;
 
 public class MyProfileActivity extends AppCompatActivity {
     private EditText emailField, passwordField, firstNameField, lastNameField, birthDateField, licenseField, licenseStateField;
     private int customer_id;
+    private int profile_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,7 @@ public class MyProfileActivity extends AppCompatActivity {
 
         RegisterLogic logic = new RegisterLogic();
         Profile profile = logic.getProfile(customer_id);
-
+        profile_id = profile.id;
         emailField.setText(profile.customer.email);
         passwordField.setText(profile.customer.password);
         firstNameField.setText(profile.customer.firstName);
@@ -43,7 +46,15 @@ public class MyProfileActivity extends AppCompatActivity {
 
     // Method called when submit button is clicked
     public void submit(View v) {
-
+        RegisterLogic logic = new RegisterLogic();
+        try {
+            logic.updateProfile(customer_id, profile_id, firstNameField.getText().toString(), lastNameField.getText().toString(), birthDateField.getText().toString(), emailField.getText().toString(), passwordField.getText().toString(), licenseField.getTransitionName().toString(), licenseStateField.getText().toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Intent homeIntent = new Intent(this, HomeActivity.class);
+        homeIntent.putExtra("id", customer_id);
+        startActivity(homeIntent);
     }
 
     // Method called when cancel button is clicked

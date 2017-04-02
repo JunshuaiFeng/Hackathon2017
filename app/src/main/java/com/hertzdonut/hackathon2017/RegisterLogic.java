@@ -15,6 +15,8 @@ import java.util.Date;
 
 import org.json.*;
 
+import static android.R.attr.password;
+
 public class RegisterLogic {
 
 	public Profile Register(String firstName, String lastName, String birthDate, String email, String password) throws JSONException {
@@ -39,6 +41,32 @@ public class RegisterLogic {
 		} else {
 			return null;
 		}
+	}
+
+	public boolean submitReservation(int customer_id) throws JSONException {
+		String url = "http://hertzapi-dev.us-west-2.elasticbeanstalk.com/api/profile/submit/?id=" + customer_id;
+		String json = request(url);
+		boolean success = parseResponse(json);
+
+		return success;
+	}
+
+	public boolean updateProfile(int customer_id, int profile_id, String firstname, String lastname, String birthdate, String email, String password, String dl_num, String dl_state) throws JSONException {
+		String url = "http://hertzapi-dev.us-west-2.elasticbeanstalk.com/api/profile/update/?customer_id = " + customer_id + "&" +
+				"profile_id = " + profile_id + "&" +
+				"firstName = " + firstname + "&" +
+				"lastName = " + lastname + "&" +
+				"birthDate = " + birthdate + "&" +
+				"email = " + email + "&" +
+				"password = " + password + "&" +
+				"driversLicenseNumber = " + dl_num + "&" +
+				"driversLicenseState = " + dl_state + "&" +
+				"waiversSigned = " + true + "&";
+
+		String json = request(url);
+		boolean success = parseResponse(json);
+
+		return success;
 	}
 
 	public Profile getProfile(int id) {
@@ -83,7 +111,7 @@ public class RegisterLogic {
 			customer.setPassword((String) customerObject.get("Password"));
 			
 			profile.customer = customer;
-
+			profile.id = (int) object.get("id");
 			Object o = object.get("DriversLicenseNumber");
 			if(o instanceof String) {
 				profile.licenseNum = (String) object.get("DriversLicenseNumber");

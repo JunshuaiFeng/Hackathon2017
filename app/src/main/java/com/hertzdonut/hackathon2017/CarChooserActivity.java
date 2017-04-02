@@ -1,5 +1,6 @@
 package com.hertzdonut.hackathon2017;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +74,19 @@ public class CarChooserActivity extends AppCompatActivity implements OnItemSelec
 
     // Method called when the submit button is clicked
     public void submit(View v) {
-
+        RegisterLogic logic = new RegisterLogic();
+        try {
+            boolean success = logic.submitReservation(customer_id);
+            if(success) {
+                Toast.makeText(this, "Success!", Toast.LENGTH_LONG).show();
+                Intent homeIntent = new Intent(this, HomeActivity.class);
+                homeIntent.putExtra("id", customer_id);
+                startActivity(homeIntent);
+            } else {
+                Toast.makeText(this, "An error has occurred!", Toast.LENGTH_LONG).show();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }
